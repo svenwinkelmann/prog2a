@@ -1,2 +1,2 @@
 # prog2a
-Code samples from my lecture Programmieren 2 / A
+Code samples for my lecture Programmieren 2 / A
