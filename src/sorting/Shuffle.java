@@ -56,5 +56,11 @@ public class Shuffle {
         int fisherYates[] = thisClass.randPermFisherYates(n);
         for(int i = 0; i < n; i++)
             System.out.print(fisherYates[i] + " ");
+
+        System.out.println("\n\nSorted:");
+        Arrays.sort(fisherYates);
+        for(int i = 0; i < n; i++)
+            System.out.print(fisherYates[i] + " ");
+
     }
 }
