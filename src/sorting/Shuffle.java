@@ -1,25 +1,29 @@
 package sorting;
 
+import acm.program.ConsoleProgram;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class Shuffle {
+public class Shuffle extends ConsoleProgram {
 
     Random rand = new Random();
+
+    int[] arrOfInts = { 5, 55, 2, 7, 45, 3, 1, 8, 23, 12 };
 
     private int[] randPermDirect(int n) {
         // based on https://de.wikipedia.org/wiki/Zuf%C3%A4llige_Permutation#Direktes_Verfahren
         int ret[] = new int[n];
-        Arrays.fill(ret, 0);
+        Arrays.fill(ret, 0);  // filling array ret with zeros
 
-        List<Integer> N = new ArrayList<Integer>();
+        List<Integer> N = new ArrayList<Integer>();  // array with numbers 1 to n
         for(int i = 0; i < n; i++)
             N.add(i);
 
         for (int i = 0; i < n; i++) {
-            int z = rand.nextInt(n - i);
+            int z = rand.nextInt(n - i);  // evenly distributed random number
             ret[i] = N.get(z);
             // critical step, as we cannot change the size of an array in Java, we need a list
             N.remove(z);
@@ -31,11 +35,11 @@ public class Shuffle {
     private int[] randPermFisherYates(int n) {
         // based on https://de.wikipedia.org/wiki/Zuf%C3%A4llige_Permutation#Fisher-Yates-Verfahren
         int ret[] = new int[n];
-        Arrays.setAll(ret, p -> p);
+        Arrays.setAll(ret, p -> p);  // filling the array with values 1 to 9
 
-        for (int i = n-1; i > 0; i--) {
-            int z = rand.nextInt(i);
-            int tmp = ret[i];
+        for (int i = n-1; i > 0; i--) {  // loop over all entries, except the first one
+            int z = rand.nextInt(i);  // evenly distributed random number
+            int tmp = ret[i];  // swap number, as we work only with one array we need to remember the ret[i]
             ret[i] = ret[z];
             ret[z] = tmp;
         }
@@ -43,24 +47,24 @@ public class Shuffle {
         return ret;
     }
 
-    public static void main(String[] args) {
-        Shuffle thisClass = new Shuffle();
+    public void run() {
+        setFont("Arial-bold-32");
         int n = 10;
 
-        System.out.println("Direktes Verfahren:");
-        int direct[] = thisClass.randPermDirect(n);
+        println("Direktes Verfahren:");
+        int direct[] = randPermDirect(n);
         for(int i = 0; i < n; i++)
-            System.out.print(direct[i] + " ");
+            print(direct[i] + " ");
 
-        System.out.println("\n\nFisher-Yates:");
-        int fisherYates[] = thisClass.randPermFisherYates(n);
+        println("\n\nFisher-Yates:");
+        int fisherYates[] = randPermFisherYates(n);
         for(int i = 0; i < n; i++)
-            System.out.print(fisherYates[i] + " ");
+            print(fisherYates[i] + " ");
 
-        System.out.println("\n\nSorted:");
+        println("\n\nSorted:");
         Arrays.sort(fisherYates);
         for(int i = 0; i < n; i++)
-            System.out.print(fisherYates[i] + " ");
+            print(fisherYates[i] + " ");
 
     }
 }
