@@ -31,6 +31,38 @@ public class OrderedNode extends Node {
         child.parent = this;
     }
 
+    /**
+     * Print this node before its children.
+     */
+    public void preOrderTraversal() {
+        System.out.println(this.element);
+
+        for(Node child: this.children)  // base case (children.size() == 0)
+            ((OrderedNode) child).preOrderTraversal();  // recursive case
+    }
+
+    /**
+     * Print the children and then this node.
+     */
+    public void postOrderTraversal() {
+        for(Node child: this.children)  // base case (children.size() == 0)
+            ((OrderedNode) child).postOrderTraversal();  // recursive case
+
+        System.out.println(this.element);
+    }
+
+    /**
+     * Print all nodes on one level of the tree.
+     * @param level The level to print out
+     */
+    public void levelOrder(int level) {
+        if (level == 1)
+            System.out.println(this.element);
+        else if (level > 1)
+            for(Node child: this.children)
+                ((OrderedNode) child).levelOrder(level - 1);
+    }
+
     // Testing method
     public static void main(String[] args) {
         // We build up our tree:
@@ -51,7 +83,17 @@ public class OrderedNode extends Node {
         System.out.println("Is Cain internal (isInternal): " + node2.isInternal());
         System.out.println("Is Cain external (isExternal): " + node2.isExternal());
         System.out.println("Data element of Cain (getElement): " + node2.getElement());
-        root.removeChild(node2);
-        System.out.println("Removed cain (removeChild): " + root.getChildren());
+        //root.removeChild(node2);
+        //System.out.println("Removed cain (removeChild): " + root.getChildren());
+
+        System.out.println("\nPre-Order Traversal: ");
+        root.preOrderTraversal();
+
+        System.out.println("\nPost-Order Traversal: ");
+        root.postOrderTraversal();
+
+        System.out.println("\nLevel-Order Traversal: ");
+        for (int height = 1; height <= 3; height++)
+            root.levelOrder(height);
     }
 }
