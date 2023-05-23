@@ -2,6 +2,9 @@ package trees;
 
 import java.util.Collections;
 
+/**
+ * An ordered tree means, it's children are in an order (e.g. number, alphabetical, ..)
+ */
 public class OrderedNode extends Node {
 
     public OrderedNode(String element)
@@ -9,10 +12,6 @@ public class OrderedNode extends Node {
         super(element);
     }
 
-    /**
-     * An ordered tree means, it's children are in an order (e.g. number, alphabetical, ..)
-     * @param child The node to add.
-     */
     @Override
     public void addChild(Node child) {
         if (this.children.size() == 0)
@@ -53,7 +52,7 @@ public class OrderedNode extends Node {
 
     /**
      * Print all nodes on one level of the tree.
-     * @param level The level to print out
+     * @param level the level to print out
      */
     public void levelOrder(int level) {
         if (level == 1)
