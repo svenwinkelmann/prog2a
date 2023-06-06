@@ -1,4 +1,4 @@
-package streams;
+package streamstext;
 
 import acm.program.ConsoleProgram;
 
