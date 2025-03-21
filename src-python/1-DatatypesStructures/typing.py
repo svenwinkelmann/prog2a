@@ -1,5 +1,5 @@
 
-if __name__ == "main":
+if __name__ == "__main__":
     sophia = 17
     sophia = Turtle()
     sophia = 'Hello World!'
