@@ -26,7 +26,7 @@ def set_sample():
     # Example from:
     # https: // docs.python.org / 3 / tutorial / datastructures.html  # sets
     a = set('abracadabra')
-    b = set('alacazam')
+    b = {'a', 'l', 'a', 'c', 'a', 'z', 'a', 'm'}
 
     print("Unique letters in a: ", a)
 
