@@ -41,7 +41,7 @@ if __name__ == "__main__":
         print(f"Result: {result}")
 
     except ZeroDivisionError as e:
-        print(f"ArithmeticError: {e}")
+        print(f"ZeroDivisionError: {e}")
     except UserTooDumpError as e:
         print(e.be_polite_and_explain_to_user())
     except Exception as e:
