@@ -1,6 +1,6 @@
 from collections import deque
 
-def print_list(queue):
+def print_list(queue: deque[int]):
     if len(queue) <= 0:  # base case
         return
 

@@ -1,15 +1,15 @@
-def iterative_fac(n):
+def iterative_fac(n: int) -> int:
     product = 1
     for k in range(1, n + 1):
         product *= k
     return product
 
-def recursive_fac(n):
+def recursive_fac(n: int) -> int:
     if n == 0:      # base case
         return 1
     return n * recursive_fac(n - 1)  # recursive case
 
-def sum_recursive(n):
+def sum_recursive(n:int) -> int:
     if n == 0:      # base case
         return 0
     return n + sum_recursive(n - 1)  # recursive case

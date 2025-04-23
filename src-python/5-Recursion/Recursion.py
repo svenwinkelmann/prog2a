@@ -2,6 +2,8 @@ import pygame
 import random
 import sys
 
+from pygame import Surface
+
 pygame.init()
 WIDTH, HEIGHT = 640, 480
 win = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -9,7 +11,7 @@ pygame.display.set_caption("Recursion Rectangles")
 
 RED = (255, 0, 0)
 
-def draw_rect(win, count):
+def draw_rect(win: Surface, count: int):
     if count <= 0:
         return
 
