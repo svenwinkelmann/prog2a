@@ -68,7 +68,7 @@ def run():
     for _ in range(NUM_ITERATIONS):
         fac = lookup_table_fac(FACT_N)
     duration = (time.time() - start) * 1000
-    print(f"Lookup table with map: {fac} ({int(duration)}ms)")
+    print(f"Lookup table with Dictionary: {fac} ({int(duration)}ms)")
 
     # Lookup mit Array
     start = time.time()
