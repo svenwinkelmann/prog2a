@@ -9,14 +9,8 @@ class OrderedNode(Node):
         super().__init__(element)
 
     def add_child(self, child: Node):
-        inserted = False
-        for i, current in enumerate(self.children):
-            if current.get_element() > child.get_element():
-                self.children.insert(i, child)
-                inserted = True
-                break
-        if not inserted:
-            self.children.append(child)
+        self.children.append(child)
+        self.children = sorted(self.children)
         child.parent = self
 
     def pre_order_traversal(self):
@@ -44,21 +38,23 @@ class OrderedNode(Node):
 
 
 if __name__ == "__main__":
-    root = OrderedNode("Adam")
-    node1 = OrderedNode("Abel")
+    root = OrderedNode("Earth")
+    node1 = OrderedNode("Africa")
     root.add_child(node1)
-    node2 = OrderedNode("Cain")
+    node2 = OrderedNode("Asia")
+    node3 = OrderedNode("Europe")
     root.add_child(node2)
-    root.add_child(OrderedNode("Bert"))
-    node2.add_child(OrderedNode("Citha"))
-    node2.add_child(OrderedNode("Maac"))
+    root.add_child(node3)
+    node3.add_child(OrderedNode("France"))
+    node3.add_child(OrderedNode("Spain"))
+    node3.add_child(OrderedNode("UK"))
 
-    print("Children of Adam (get_children):", [str(child) for child in root.get_children()])
-    print("Parent of Cain (get_parent):", node2.get_parent())
-    print("Is Adam root (is_root):", root.is_root())
-    print("Is Cain internal (is_internal):", node2.is_internal())
-    print("Is Cain external (is_external):", node2.is_external())
-    print("Data element of Cain (get_element):", node2.get_element())
+    print("Children of Earth (get_children):", [str(child) for child in root.get_children()])
+    print("Parent of Asia (get_parent):", node2.get_parent())
+    print("Is Earth root (is_root):", root.is_root())
+    print("Is Europe internal (is_internal):", node3.is_internal())
+    print("Is Europe external (is_external):", node3.is_external())
+    print("Data element of Asia (get_element):", node2.get_element())
 
     print("\nPre-Order Traversal: ")
     root.pre_order_traversal()
