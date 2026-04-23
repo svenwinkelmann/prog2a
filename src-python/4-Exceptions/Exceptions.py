@@ -1,5 +1,5 @@
 
-class UserTooDumpError(Exception):
+class UserTooDumbError(Exception):
     def be_polite_and_explain_to_user(self):
         return f"Oops! That’s not how division works: {self.args[0]}\n"
 
@@ -18,7 +18,7 @@ class PlayingWithExceptions:
 
     def divide3(self, numerator: int, divisor: int) -> float:
         if divisor == 0:
-            raise UserTooDumpError("Do not divide /0")
+            raise UserTooDumbError("Do not divide /0")
         return float(numerator) / divisor
 
     def call_divide3(self, numerator: int, divisor: int) -> float:
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     except ZeroDivisionError as e:
         print(f"ZeroDivisionError: {e}")
-    except UserTooDumpError as e:
+    except UserTooDumbError as e:
         print(e.be_polite_and_explain_to_user())
     except Exception as e:
         print(f"General exception: {e}")
