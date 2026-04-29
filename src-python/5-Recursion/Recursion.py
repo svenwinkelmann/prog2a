@@ -12,7 +12,7 @@ pygame.display.set_caption("Recursion Rectangles")
 RED = (255, 0, 0)
 
 def draw_rect(win: Surface, count: int):
-    if count <= 0:
+    if count <= 0:   # base case
         return
 
     print("drawRectangle is called")
@@ -21,7 +21,8 @@ def draw_rect(win: Surface, count: int):
     y = random.randint(0, HEIGHT - rect_height)
     pygame.draw.rect(win, RED, (x, y, rect_width, rect_height), width=1)
 
-    draw_rect(win, count - 1)
+    count -= 1  # change variable
+    draw_rect(win, count)  # recursive case
 
 def main():
     win.fill((255, 255, 255))
